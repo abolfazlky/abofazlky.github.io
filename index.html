@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- تگ توضیحات سئو (SEO) -->
+    <meta name="description" content="مرجع جامع معرفی، بررسی و تماشای آنلاین تریلر ۱۰۰ بازی کامپیوتر (PC) و ۷۲ بازی موبایل بدون نیاز به فیلترشکن.">
+    
+    <title>گیم لند | مرجع معرفی بازی‌های PC و موبایل</title>
+    
+    <!-- فونت فارسی وزیرمتن و آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap');
+
+        :root {
+            --bg-color: #f0f2f5;
+            --text-color: #1a1a1a;
+            --card-bg: #ffffff;
+            --primary-color: #6c5ce7;
+            --hover-color: #5b4bc4;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --badge-pc: #ff4757;
+            --badge-mobile: #2ed573;
+        }
+
+        body.dark-mode {
+            --bg-color: #0f0f12;
+            --text-color: #f5f6fa;
+            --card-bg: #18181c;
+            --primary-color: #a29bfe;
+            --hover-color: #8175ff;
+            --shadow-color: rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding-bottom: 50px;
+        }
+
+        /* هدر سایت */
+        header {
+            background-color: var(--card-bg);
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 15px 10px 40px;
+            border-radius: 25px;
+            border: 2px solid #ccc;
+            outline: none;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 14px;
+            width: 220px;
+            transition: 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+            width: 260px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        #themeToggle {
+            background-color: var(--bg-color);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+
+        /* فیلتر پلتفرم‌ها */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .filter-btn {
+            padding: 8px 22px;
+            border: none;
+            border-radius: 20px;
+            background-color: #e0e0e0;
+            color: #333;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        body.dark-mode .filter-btn {
+            background-color: #2d2d35;
+            color: #ccc;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white !important;
+        }
+
+        /* گرید کارت‌های بازی */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px var(--shadow-color);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--bg-color);
+        }
+
+        .game-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        .game-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .platform-tag {
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            color: white;
+            display: inline-block;
+        }
+
+        .platform-tag.pc { background-color: var(--badge-pc); }
+        .platform-tag.mobile { background-color: var(--badge-mobile); }
+
+        .trailer-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .trailer-btn:hover { background-color: var(--hover-color); }
+
+        /* پاپ‌آپ ویدیو */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background-color: #000;
+            border-radius: 12px;
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 600px) {
+            .header-container { flex-direction: column; }
+            .header-controls { width: 100%; justify-content: space-between; }
+            .search-box { flex-grow: 1; }
+            .search-box input { width: 100%; }
+            .search-box input:focus { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- هدر سایت -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>گیم لند</span>
+            </div>
+            
+            <div class="header-controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="جستجوی بازی...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button id="themeToggle" title="تغییر حالت شب و روز">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">همه بازی‌ها</button>
+                <button class="filter-btn" data-filter="pc">بازی‌های PC</button>
+                <button class="filter-btn" data-filter="mobile">بازی‌های موبایل</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- کانتینر اصلی -->
+    <main>
+        <div id="games-container" class="games-grid"></div>
+    </main>
+
+    <!-- پاپ‌آپ تریلر آپارات -->
+    <div id="trailerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="video-wrapper" id="videoContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // ====================================================
+        //  دیتابیس کامل 172 بازی (100 کامپیوتر + 72 موبایل)
+        // ====================================================
+        const pcGamesList = [
+            "Red Dead Redemption 2", "GTA V", "Cyberpunk 2077", "The Witcher 3: Wild Hunt", "God of War Ragnarok",
+            "Elden Ring", "Forza Horizon 5", "Counter-Strike 2", "EA SPORTS FC 24", "Valorant",
+            "Minecraft", "Red Dead Redemption 1", "Assassin's Creed Valhalla", "Assassin's Creed Mirage", "Spider-Man Remastered",
+            "Spider-Man Miles Morales", "The Last of Us Part I", "Resident Evil 4 Remake", "Resident Evil Village", "Hogwarts Legacy",
+            "Starfield", "Baldur's Gate 3", "Call of Duty: Modern Warfare III", "Call of Duty: Warzone", "Apex Legends",
+            "Fortnite", "Dota 2", "League of Legends", "Rainbow Six Siege", "Overwatch 2",
+            "Rocket League", "Rust", "Ark: Survival Evolved", "Need for Speed Unbound", "Need for Speed Heat",
+            "Forza Horizon 4", "F1 23", "Assetto Corsa", "Euro Truck Simulator 2", "Cities: Skylines II",
+            "Civilization VI", "Age of Empires IV", "Total War: Warhammer III", "Starcraft II", "Diablo IV",
+            "Path of Exile", "Monster Hunter: World", "Monster Hunter Rise", "Sekiro: Shadows Die Twice", "Dark Souls III",
+            "Bloodborne PC Mod", "Lies of P", "Ghost of Tsushima", "Horizon Zero Dawn", "Horizon Forbidden West",
+            "Death Stranding", "Detroit: Become Human", "Heavy Rain", "Beyond: Two Souls", "Control",
+            "Alan Wake 2", "Dead Space Remake", "The Callisto Protocol", "Silent Hill 2 Remake", "Outlast 2",
+            "Phasmophobia", "Lethal Company", "Among Us", "Fall Guys", "Palworld",
+            "Helldivers 2", "Manor Lords", "Dragon's Dogma 2", "Tekken 8", "Street Fighter 6",
+            "Mortal Kombat 1", "Dragon Ball: Sparking! ZERO", "Final Fantasy XVI", "Final Fantasy VII Remake", "Persona 5 Royal",
+            "Yakuza: Like a Dragon", "Like a Dragon: Infinite Wealth", "Hollow Knight", "Dead Cells", "Hades II",
+            "Hades", "Celeste", "Cuphead", "Ori and the Will of the Wisps", "Stardew Valley",
+            "Terraria", "Subnautica", "Satisfactory", "Factorio", "RimWorld",
+            "Mount & Blade II: Bannerlord", "Crusader Kings III", "Hearts of Iron IV", "Stellaris", "Football Manager 2024"
+        ];
+
+        const mobileGamesList = [
+            "PUBG Mobile", "Call of Duty Mobile", "Free Fire", "Mobile Legends: Bang Bang", "Genshin Impact",
+            "Honkai: Star Rail", "League of Legends: Wild Rift", "Clash of Clans", "Clash Royale", "Brawl Stars",
+            "Roblox", "Minecraft Pocket Edition", "Among Us Mobile", "EA SPORTS FC Mobile", "eFootball 2024 Mobile",
+            "Asphalt 9: Legends", "Real Racing 3", "CarX Drift Racing 2", "Need for Speed No Limits", "Mario Kart Tour",
+            "Shadow Fight 3", "Shadow Fight 4: Arena", "Mortal Kombat Mobile", "Injustice 2 Mobile", "Vector 2",
+            "Subway Surfers", "Temple Run 2", "Candy Crush Saga", "Angry Birds 2", "Fruit Ninja 2",
+            "Alto's Odyssey", "Monument Valley 2", "Limbo Mobile", "Very Little Nightmares", "Dead Cells Mobile",
+            "GRID Autosport", "Wreckfest Mobile", "Alien: Isolation Mobile", "Hitman Sniper", "Hitman GO",
+            "Lara Croft GO", "Deus Ex GO", "Stardew Valley Mobile", "Terraria Mobile", "Don't Starve Mobile",
+            "This War of Mine", "Papers, Please Mobile", "Slay the Spire Mobile", "Marvel Snap", "Hearthstone Mobile",
+            "Yu-Gi-Oh! Master Duel", "Pokemon UNITE", "Arena of Valor", "Brawlhalla Mobile", "Rocket League Sideswipe",
+            "Carrom Pool", "8 Ball Pool", "Ludo King", "Chess.com Mobile", "Score! Hero",
+            "Dream League Soccer 2024", "Top Eleven", "Tennis Clash", "Golf Clash", "Zombie Catchers",
+            "Plants vs. Zombies 2", "State of Survival", "Rise of Kingdoms", "Lords Mobile", "Age of Origins",
+            "Mafia City", "Survivor.io"
+        ];
+
+        // تولید آرایه نهایی بازی‌ها
+        const gamesData = [];
+
+        pcGamesList.forEach((name, index) => {
+            gamesData.push({
+                title: `بازی ${name}`,
+                platform: "pc",
+                image: `https://picsum.photos/seed/pc_${index}/400/250`,
+                trailer: "https://www.aparat.com/video/video/embed/videohash/a2V9z/vt/frame"
+            });
+        });
+
+        mobileGamesList.forEach((name, index) => {
+            gamesData.push({
+                title: `بازی ${name}`,
+                platform: "mobile",
+                image: `https://picsum.photos/seed/mob_${index}/400/250`,
+                trailer: "https://www.aparat.com/video/video/embed/videohash/gO7rA/vt/frame"
+            });
+        });
+
+        // ====================================================
+        //  منطق برنامه
+        // ====================================================
+        const gamesContainer = document.getElementById('games-container');
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const themeToggle = document.getElementById('themeToggle');
+        const modal = document.getElementById('trailerModal');
+        const videoContainer = document.getElementById('videoContainer');
+        const closeBtn = document.querySelector('.close-btn');
+
+        let currentFilter = 'all';
+
+        function displayGames(searchTerm = '') {
+            gamesContainer.innerHTML = '';
+
+            const filteredList = gamesData.filter(game => {
+                const matchesPlatform = (currentFilter === 'all') || (game.platform === currentFilter);
+                const matchesSearch = game.title.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesPlatform && matchesSearch;
+            });
+
+            if (filteredList.length === 0) {
+                gamesContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; font-size: 18px; font-weight: bold;">هیچ بازی پیدا نشد! 🎮</div>`;
+                return;
+            }
+
+            filteredList.forEach(game => {
+                const card = document.createElement('div');
+                card.className = 'game-card';
+
+                const platformLabel = game.platform === 'pc' ? 'کامپیوتر (PC)' : 'موبایل (Mobile)';
+                const platformClass = game.platform === 'pc' ? 'pc' : 'mobile';
+
+                card.innerHTML = `
+                    <img src="${game.image}" alt="${game.title}" loading="lazy">
+                    <div class="game-info">
+                        <div class="game-title">${game.title}</div>
+                        <span class="platform-tag ${platformClass}">${platformLabel}</span>
+                        <button class="trailer-btn" onclick="openTrailer('${game.trailer}')">
+                            <i class="fas fa-play"></i> تماشای تریلر
+                        </button>
+                    </div>
+                `;
+                gamesContainer.appendChild(card);
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                currentFilter = btn.getAttribute('data-filter');
+                displayGames(searchInput.value);
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            displayGames(e.target.value);
+        });
+
+        window.openTrailer = function(embedUrl) {
+            videoContainer.innerHTML = `<iframe src="${embedUrl}" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>`;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            videoContainer.innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.querySelector('i').className = 'fas fa-sun';
+        }
+
+        displayGames();
+    </script>
+</body>
+</html>
